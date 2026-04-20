@@ -1,5 +1,5 @@
 # HourChangesColor
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Br4hms-d3v/HourChangesColor/ci.yml?style=for-the-badge)](
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Br4hms-d3v/HourChangesColor/ci.yml?branch=dev)](
 https://github.com/Br4hms-d3v/HourChangesColor/actions)
 
 A Spring Boot app that changes the theme with the time (AM/PM).  
