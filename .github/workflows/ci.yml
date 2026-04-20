@@ -19,8 +19,8 @@ jobs:
           java-version: '25'
 
       - name: Spotless Check
-        run: /gradlew spotlessCheck
+        run: ./gradlew spotlessCheck
 
       - name: Build
-        run: /gradlew build --no-deamon
+        run: ./gradlew build --no-deamon
 
