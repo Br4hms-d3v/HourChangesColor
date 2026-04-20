@@ -2,6 +2,7 @@ package be.brahms.hourchangecolor.service;
 
 import be.brahms.hourchangecolor.model.HourColorEntity;
 import be.brahms.hourchangecolor.repository.ColorRepository;
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,11 +14,13 @@ public class ColorService {
     this.colorRepository = colorRepository;
   }
 
-  public void saveColors(String backgroundColor, String textColor, String message) {
+  public void saveColors(
+      String backgroundColor, String textColor, String message, LocalDateTime time) {
     HourColorEntity hourColorEntity = new HourColorEntity();
     hourColorEntity.setBackgroundColor(backgroundColor);
     hourColorEntity.setTextColor(textColor);
     hourColorEntity.setMessage(message);
+    hourColorEntity.setUpdateAt(time);
     colorRepository.save(hourColorEntity);
   }
 
