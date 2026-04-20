@@ -4,57 +4,57 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import java.time.LocalDateTime;
 
 @Entity
 public class HourColorEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String backgroundColor;
-    private String textColor;
-    private String message;
-    private LocalDateTime updateAt;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    public Long getId() {
-        return id;
-    }
+  private String backgroundColor;
+  private String textColor;
+  private String message;
+  private LocalDateTime updateAt;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getBackgroundColor() {
-        return backgroundColor;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
+  public String getBackgroundColor() {
+    return backgroundColor;
+  }
 
-    public String getTextColor() {
-        return textColor;
-    }
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
 
-    public void setTextColor(String textColor) {
-        this.textColor = textColor;
-    }
+  public String getTextColor() {
+    return textColor;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  public void setTextColor(String textColor) {
+    this.textColor = textColor;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  public String getMessage() {
+    return message;
+  }
 
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
-    }
+  public LocalDateTime getUpdateAt() {
+    return updateAt;
+  }
+
+  public void setUpdateAt(LocalDateTime updateAt) {
+    this.updateAt = updateAt;
+  }
 }
