@@ -1,3 +1,27 @@
 spring:
   application:
     name: HourChangeColor
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:hourcolor;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: anonym
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+sever:
+  port: 8080
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health,info
