@@ -35,21 +35,21 @@ public class ColorTasklet implements Tasklet {
     String message;
 
     if (hour >= 0 && hour <= 5) {
-      backGroundColor = "#0B1320";
+      backGroundColor = "#121212";
       textColor = "#FFFFFF";
-      message = "Bonne nuit \uD83C\uDF04 ";
+      message = "Bonne nuit";
     } else if (hour <= 11) {
-      backGroundColor = "#F5F5F5";
+      backGroundColor = "#E0F7FA";
       textColor = "#000000";
-      message = "Bonjour \uD83C\uDF05";
+      message = "Bonjour";
     } else if (hour <= 17) {
-      backGroundColor = "##FFD166";
+      backGroundColor = "#FFF9C4";
       textColor = "#000000";
-      message = "Bon après-midi \uD83C\uFE0F";
+      message = "Bon après-midi";
     } else {
-      backGroundColor = "#1C1C2E";
+      backGroundColor = "#FFCCBC";
       textColor = "#FFFFFF";
-      message = "Bonne soirée \uD83C\uDF06";
+      message = "Bonne soirée";
     }
 
     colorService.saveColors(
