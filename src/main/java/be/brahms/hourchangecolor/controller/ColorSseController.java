@@ -14,31 +14,42 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-@RestController
+@RestController // This class handles HTTP requests
 public class ColorSseController {
 
+  // Service to get colour data
   private final ColorService colorService;
+  // List of connected clients
   private final List<SseEmitter> emitters = new ArrayList<>();
 
+  // Constructor
   public ColorSseController(ColorService colorService) {
     this.colorService = colorService;
   }
 
+  // This endpoint allows clients to connect and receive updates
   @GetMapping(path = "/sse/colors", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public SseEmitter streamColors() {
+    // Create a new SSE connection (no timeout)
     SseEmitter emitter = new SseEmitter(0L);
-
+    // Add the client to the list
     emitters.add(emitter);
+    // Remove client when connection is closed
     emitter.onCompletion(() -> emitters.remove(emitter));
+    // Remove client if timeout happens
     emitter.onTimeout(() -> emitters.remove(emitter));
 
     return emitter;
   }
 
+  // This method is called when colours are update
   @EventListener
   public void onColorUpdated(ColorUpdatedEvent event) {
+    // Get current colour
     HourColorEntity hourColor = colorService.getCurrentColor();
     LocalTime localTime = LocalTime.now();
+
+    // Create data to send
     Map<String, String> payload =
         Map.of(
             "backgroundColor", hourColor.getBackgroundColor(),
@@ -46,6 +57,7 @@ public class ColorSseController {
             "message", hourColor.getMessage(),
             "time", localTime.truncatedTo(ChronoUnit.SECONDS).toString());
 
+    // Send data to all connected clients
     emitters.forEach(
         emitter -> {
           try {
