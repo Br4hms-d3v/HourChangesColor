@@ -14,8 +14,8 @@ The page updates in real time with SSE.
 - 🔄 Auto update without page reload (SSE)
 - 🗄️ Data saved in H2 database
 - 🧼 Code formatting with Spotless
-- 🔁 Spring Batch runs every hour
-- 🚀 CI/CD with GitHub Actions (build + deploy with SSH, no Docker)
+- 🔁 Spring Batch runs every minute
+- 🚀 CI with GitHub Actions 
 - 📄 Simple Mustache front-end
 
 ---
@@ -45,7 +45,7 @@ The batch runs every hour:
 - Update database with:
     - background color
     - text color
-    - message (Good day / Good evening)
+    - message (Good morning / Good day / Good evening /Good night)
 - Send SSE event to update the page  
 
 ---
