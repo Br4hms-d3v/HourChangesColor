@@ -6,18 +6,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity // This class is a database entity
 public class HourColorEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id // This is the primary key
+  @GeneratedValue(strategy = GenerationType.IDENTITY) // The ID is generated automatically
   private Long id;
 
+  // Colour for the background
   private String backgroundColor;
+  // Colour for the text
   private String textColor;
+  // Message to display
   private String message;
+  // Time when the data was updated
   private LocalDateTime updateAt;
 
+  // Getters and Setters
   public Long getId() {
     return id;
   }
